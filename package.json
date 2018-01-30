@@ -1,0 +1,26 @@
+{
+  "name": "geometry-algorithm",
+  "version": "1.0.0",
+  "description": "Collection of geometry algorithms",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Terry-Su/Geometry-Algorithm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Terry-Su/Geometry-Algorithm/issues"
+  },
+  "homepage": "https://github.com/Terry-Su/Geometry-Algorithm#readme",
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "copy-webpack-plugin": "^4.3.1",
+    "eslint": "^4.16.0",
+    "eslint-plugin-prettier": "^2.5.0"
+  }
+}
