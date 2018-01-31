@@ -37,7 +37,7 @@ class SharedWebpackConfig {
           ]
         },
         {
-          test   : /\.tsx?$/,
+          test   : /\.ts.*?$/,
           use    : "ts-loader",
           exclude: /node_modules/
         },
@@ -101,7 +101,7 @@ class SharedWebpackConfig {
      * Entries
      */
     this.entryApp = dirname => {
-      const entry = `${dirname}/app.js`
+      const entry = `${dirname}/app.tsx`
       return entry
     }
 
@@ -116,6 +116,16 @@ class SharedWebpackConfig {
       }
 
       return res
+    }
+
+    /**
+     * Resolve
+     */
+    this.resolveAlias = {
+      alias: {
+        core : PATH.resolve( __dirname, "../core" ),
+        shared: PATH.resolve( __dirname, "../shared" ),
+      }
     }
 
     /**
@@ -143,7 +153,15 @@ class SharedWebpackConfig {
      */
     this.react = {
       module : this.moduleReact,
-      devtool: this.devtoolSourceMap
+      devtool: this.devtoolSourceMap,
+      resolve: {
+        alias     : this.resolveAlias.alias,
+        extensions: [ ".ts", ".tsx", ".js", ".json" ]
+      }
+      // externals: {
+      //   react      : "React",
+      //   "react-dom": "ReactDOM"
+      // }
     }
   }
 }
