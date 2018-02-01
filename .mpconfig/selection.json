@@ -1,1 +1,10 @@
-[{ "src": { "generalPages": { "firstPage": true } } }]
+[
+  {
+    "src": {
+      "Geometry Algorithms": {
+        "Calculate Triangle Area": true,
+        "Calculate Triangle Area2": true
+      }
+    }
+  }
+]

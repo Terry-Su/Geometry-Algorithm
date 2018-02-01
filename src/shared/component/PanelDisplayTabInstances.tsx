@@ -1,26 +1,21 @@
 import React, { Component } from "react"
 import { render } from "react-dom"
-import { TriangleAreaWithBH, TriangleAreaWithABTheta, TriangleAreaWithABC, TriangleAreaWithB2Angle, TriangleAreaWithPoints } from "shared/component/Area"
 import { values, mapValues } from "lodash"
-import log from "shared/util/log"
 
-class App extends Component<any, any> {
-  rawInstanceMap: any = {
-    "Area-Triangle-Points": TriangleAreaWithPoints,    
-    "Area-Triangle-B2Angle": TriangleAreaWithB2Angle,    
-    "Area-Triangle-ABC": TriangleAreaWithABC,    
-    "Area-Triangle-ABTheta": TriangleAreaWithABTheta,    
-    "Area-Triangle-BH": TriangleAreaWithBH,    
-    
-  }
+export default class PanelDisplayTabInstances extends Component<any, any> {
+  rawInstanceMap: any = {}
 
   state = {
-    activeInstanceName: Object.keys( this.rawInstanceMap )[ 0 ]
+    activeInstanceName: this.activeInstanceName
   }
 
+  get activeInstanceName(): string {
+    return Object.keys( this.rawInstanceMap )[ 0 ]
+  }
+ 
   get activeInstance(): any {
-    const Instance = this.rawInstanceMap[ this.state.activeInstanceName ]
-    return <Instance />
+    const Instance = this.rawInstanceMap[ this.state.activeInstanceName ] 
+    return Instance ? <Instance /> : null
   }
 
   get buttons(): any[] {
@@ -71,5 +66,3 @@ class App extends Component<any, any> {
     )
   }
 }
-
-render( <App />, document.getElementById( "app" ) )
