@@ -1,9 +1,9 @@
 import React, { Component } from "react"
-import log from "utils/log";
+import log from "shared/util/log";
 import { calcTriangleAreaWithBH } from 'core/calcArea';
 
 
-export default class ComponenetWithCanvas extends Component {
+export default class ComponentWithCanvas extends Component {
   public canvas: HTMLCanvasElement
   public canvasWidth: number = 500
   public canvasHeight: number = 500

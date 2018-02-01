@@ -82,7 +82,7 @@ class SharedWebpackConfig {
           ]
         },
         {
-          test: /\.(jpe?g|gif|png|svg|woff|ttf|wav|mp3)$/,
+          test: /\.(jpe?g|gif|png|svg|woff|woff2|ttf|wav|mp3)$/,
           use : [
             {
               loader: "file-loader"
@@ -101,7 +101,7 @@ class SharedWebpackConfig {
      * Entries
      */
     this.entryApp = dirname => {
-      const entry = `${dirname}/app.tsx`
+      const entry = `${dirname}/app`
       return entry
     }
 
@@ -123,8 +123,8 @@ class SharedWebpackConfig {
      */
     this.resolveAlias = {
       alias: {
-        core : PATH.resolve( __dirname, "../core" ),
-        shared: PATH.resolve( __dirname, "../shared" ),
+        core  : PATH.resolve( __dirname, "../core" ),
+        shared: PATH.resolve( __dirname, "../shared" )
       }
     }
 
