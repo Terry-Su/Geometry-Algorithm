@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import log from "shared/util/log";
 import { calcTriangleAreaWithBH } from 'core/calcArea';
-
+import CanvasRenderingContext2D from 'shared/interface/CanvasRenderingContext2D'
 
 export default class ComponentWithCanvas extends Component {
   public canvas: HTMLCanvasElement
@@ -9,7 +9,8 @@ export default class ComponentWithCanvas extends Component {
   public canvasHeight: number = 500
 
   get ctx(): CanvasRenderingContext2D {
-    return this.canvas.getContext( '2d' )
+    const ctx: any = this.canvas.getContext( '2d' )
+    return ctx
   }
 
   render() {

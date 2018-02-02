@@ -3,7 +3,7 @@
     "src": {
       "Geometry Algorithms": {
         "Calculate Triangle Area": true,
-        "Calculate Triangle Area2": true
+        "Calculate Distance Point To Line": true
       }
     }
   }

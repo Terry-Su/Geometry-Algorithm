@@ -11,7 +11,7 @@ import {
   drawText
 } from "shared/util/drawCanvas"
 import { Point2D } from "shared/interface/index"
-import calcDistance from "core/calcDistance";
+import { calcDistanceBetween2Points } from "core/calcDistance";
 
 const triangleA: Point2D = {
   x: 0,
@@ -43,13 +43,6 @@ export class TriangleAreaWithBH extends ComponentWithCanvas {
 
   get h(): number {
     return Math.abs( this.B.y )
-  }
-
-  get pedalPoint(): Point2D {
-    return {
-      x: this.B.x,
-      y: 0
-    }
   }
 
   get pedalAngleLeftTopPoint(): Point2D {
@@ -130,11 +123,11 @@ export class TriangleAreaWithABTheta extends ComponentWithCanvas {
   C: Point2D = triangleC
 
   get a(): number {
-    return calcDistance( this.A, this.B )
+    return calcDistanceBetween2Points( this.A, this.B )
   }
 
   get b(): number {
-    return calcDistance( this.A, this.C )
+    return calcDistanceBetween2Points( this.A, this.C )
   }
 
   get theta(): number {
@@ -203,15 +196,15 @@ export class TriangleAreaWithABC extends ComponentWithCanvas {
   C: Point2D = triangleC
 
   get a(): number {
-    return calcDistance( this.A, this.B )
+    return calcDistanceBetween2Points( this.A, this.B )
   }
 
   get b(): number {
-    return calcDistance( this.A, this.C )
+    return calcDistanceBetween2Points( this.A, this.C )
   }
 
   get c(): number {
-    return calcDistance( this.B, this.C )
+    return calcDistanceBetween2Points( this.B, this.C )
   }
 
   componentDidMount() {
@@ -273,7 +266,7 @@ export class TriangleAreaWithB2Angle extends ComponentWithCanvas {
   C: Point2D = triangleC
 
   get b(): number {
-    return calcDistance( this.A, this.C )
+    return calcDistanceBetween2Points( this.A, this.C )
   }
 
   get theta(): number {

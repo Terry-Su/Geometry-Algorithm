@@ -10,7 +10,7 @@ module.exports = {
   parserOptions: {
     sourceType: "module"
   },
-  extends: ["eslint:recommended", "plugin:react/recommended"],
+  // extends: ["eslint:recommended", "plugin:react/recommended"],
   rules: {
     "operator-linebreak": ["warn", "after"],
     semi: [
