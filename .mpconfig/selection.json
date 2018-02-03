@@ -2,9 +2,10 @@
   {
     "src": {
       "Geometry Algorithms": {
-        "Calculate Triangle Area": true,
-        "Calculate Distance Point To Line": true
-      }
+        "Calculate Triangle Area": false,
+        "Calculate Distance Point To Line": false
+      },
+      "test": true
     }
   }
 ]

@@ -92,6 +92,28 @@ class SharedWebpackConfig {
       ]
     }
 
+    this.moduleTypescript = {
+      rules: [
+        {
+          test   : /\.js.*/,
+          exclude: /node_modules/,
+          use    : [
+            {
+              loader : "babel-loader",
+              options: {
+                presets: [ "es2015", "stage-2", "react" ]
+              }
+            }
+          ]
+        },
+        {
+          test   : /\.ts.*?$/,
+          use    : "ts-loader",
+          exclude: /node_modules/
+        },
+      ]
+    }
+
     /**
      * Dev tools
      */
@@ -162,6 +184,18 @@ class SharedWebpackConfig {
       //   react      : "React",
       //   "react-dom": "ReactDOM"
       // }
+    }
+
+    /**
+     * Typescript
+     */
+    this.typescript = {
+      module : this.moduleTypescript,
+      devtool: this.devtoolSourceMap,
+      resolve: {
+        alias     : this.resolveAlias.alias,
+        extensions: [ ".ts", ".tsx", ".js", ".json" ]
+      }
     }
   }
 }
