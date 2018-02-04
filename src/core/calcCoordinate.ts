@@ -41,6 +41,6 @@ export function isPointOn3Quadrant( P: Point2D ) {
 }
 
 export function isPointOn4Quadrant( P: Point2D ) {
-  return P.x < 0 && P.y > 0
+  return P.x > 0 && P.y > 0
 }
 

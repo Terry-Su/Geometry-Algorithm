@@ -10,8 +10,7 @@ import {
   isPointOn4Quadrant
 } from "./calcCoordinate"
 
-const { abs, atan2, sqrt, pow, cos, sin } = Math
-
+const { abs, atan, sqrt, pow, cos, sin } = Math
 
 export function calcVectorLength( v: Vector ): number {
   const res: number = sqrt( pow( v[ 1 ].y - v[ 0 ].y, 2 ) + pow( v[ 1 ].x - v[ 0 ].x, 2 ) )
@@ -31,7 +30,7 @@ export function calcVectorRadian( v: Vector ): number {
   }
 
   let radian = 0
-  const absoluteRadian = abs( atan2( R.y, R.x ) )
+  const absoluteRadian = atan( R.y / R.x )
 
   if ( isPointOnXAxisPositive( R ) ) {
     radian = 0
@@ -42,15 +41,15 @@ export function calcVectorRadian( v: Vector ): number {
   }
 
   if ( isPointOnYAxisPositive( R ) ) {
-    radian = Math.PI / 2
-  }
-
-  if ( isPointOnYAxisNegative( R ) ) {
     radian = Math.PI * 3 / 2
   }
 
+  if ( isPointOnYAxisNegative( R ) ) {
+    radian = Math.PI / 2
+  }
+
   if ( isPointOn1Quadrant( R ) ) {
-    radian = absoluteRadian
+    radian = -absoluteRadian
   }
 
   if ( isPointOn2Quadrant( R ) ) {
@@ -58,7 +57,7 @@ export function calcVectorRadian( v: Vector ): number {
   }
 
   if ( isPointOn3Quadrant( R ) ) {
-    radian = Math.PI + absoluteRadian
+    radian = Math.PI - absoluteRadian
   }
 
   if ( isPointOn4Quadrant( R ) ) {
@@ -69,7 +68,7 @@ export function calcVectorRadian( v: Vector ): number {
 }
 
 export function calcRadianBetween2Vector( v: Vector, w: Vector ): number {
-  const res: number = calcVectorRadian( w ) -  calcVectorRadian( v )
+  const res: number = calcVectorRadian( w ) - calcVectorRadian( v )
   return res
 }
 

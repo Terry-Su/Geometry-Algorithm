@@ -8,7 +8,7 @@ module.exports = {
   webpackConfig: Object.assign(
     {
       entry  : {
-        'test/core/calcDistance/calcDistancePointToLine.spec.js': PATH.resolve( __dirname, 'core/calcDistance/calcDistancePointToLine.spec.ts' )
+        'core/index.spec.js': PATH.resolve( __dirname, 'core/index.spec.ts' )
       },
       output : {
         path: srcToBuild( __dirname ),

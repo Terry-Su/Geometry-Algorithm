@@ -5,7 +5,6 @@
   "main": "script.js",
   "scripts": {
     "start": "node script.js",
-    "preTest": "gulp",
     "test": "node src/__spec__/runner"
   },
   "repository": {
