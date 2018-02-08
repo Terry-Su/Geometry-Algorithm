@@ -83,7 +83,6 @@ describe( "CalcDistancePointToLine", () => {
     const angle4 = calcVectorRadian( v4 ) * RADIAN_TO_DEGREE
 
 
-
     log( {
       angle1,
       angle2,
