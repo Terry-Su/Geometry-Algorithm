@@ -4,6 +4,7 @@ export type Point2D = {
 }
 
 export type Vector =  [ Point2D, Point2D ]
+export type Segment =  [ Point2D, Point2D ]
 
 export type Radian = number
 

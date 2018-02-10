@@ -6,7 +6,7 @@
         "Calculate Distance Point To Line": false,
         "Calculate If Point Is In Polygon": true
       },
-      "test": false
+      "test": true
     }
   }
 ]
