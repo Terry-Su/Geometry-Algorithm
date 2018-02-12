@@ -9,10 +9,12 @@ import { isNil, isNumber, isArray } from 'lodash';
  */
 export default function(
 	point: Point2D,
-	s: number | number[],
+	s: number | number[]  = 1,
 	center: Point2D = { x: 0, y: 0 }
 ): Point2D {
 	const { x, y }: Point2D = point
+	const { x: xc, y: yc }: Point2D = center
+
 
 	let sx: number
 	let sy: number
@@ -27,9 +29,19 @@ export default function(
 		sy = s[1]
 	}
 
-	
+	/**
+	 * Delta x of center point after having scaled point
+	 */
+	const deltaX = -( sx * xc - xc )
+	/**
+	 * Delta y of center point after having scaled point
+	 */
+	const deltaY = -( sy * yc - yc )
 
-	
+	const res: Point2D = {
+		x: sx * x + deltaX,
+		y: sy * y + deltaY,
+	}
 
-	return
+	return res
 }
