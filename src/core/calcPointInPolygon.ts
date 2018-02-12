@@ -35,14 +35,6 @@ export function isRight( L0: Point2D, L1: Point2D, P: Point2D ) {
   return area < 0
 }
 
-/**
- * Check if point P is on the side of vector from L0 to L1
- * Area llgorithm: http://geomalgorithms.com/a01-_area.html
- */
-export function isOnLine( L0: Point2D, L1: Point2D, P: Point2D ) {
-  const area: number = getArea( L0, L1, P )
-  return area === 0
-}
 
 /**
  * Check if point P is inside of polygon with winding number algorithm
@@ -83,7 +75,7 @@ export function pointInPolygonWindingNumber(
     }
   }
 
-  const pointOnPolygonPath: boolean = isPointOnPolygonPath( P, polygonVertices )
+  const pointOnPolygonPath: boolean = isPointOnPolygonPath( P, points )
   const res: boolean = pointOnPolygonPath || wn !== 0
 
   return res
@@ -104,9 +96,11 @@ export function pointInPolygonCrossingNumber(
    */
   let cn = 0
 
-  for ( let i: number = 0; i < polygonVertices.length - 1; i++ ) {
-    const V0: Point2D = polygonVertices[ i ]
-    const V1: Point2D = polygonVertices[ i + 1 ]
+  const points: Point2D[] = polygonVertices
+
+  for ( let i: number = 0; i < points.length - 1; i++ ) {
+    const V0: Point2D = points[ i ]
+    const V1: Point2D = points[ i + 1 ]
 
     const { x: x0, y: y0 }: Point2D = V0
     const { x: x1, y: y1 }: Point2D = V1
@@ -127,7 +121,7 @@ export function pointInPolygonCrossingNumber(
   }
 
   const isCnEven: boolean = isEven( cn )
-  const pointOnPolygonPath: boolean = isPointOnPolygonPath( P, polygonVertices )
+  const pointOnPolygonPath: boolean = isPointOnPolygonPath( P, points )
   const res: boolean = pointOnPolygonPath || isCnEven
 
   return res
