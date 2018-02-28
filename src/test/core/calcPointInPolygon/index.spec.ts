@@ -32,10 +32,6 @@ describe( "CalcPointInPolygon", () => {
           x: 0,
           y: -10
         },
-        {
-          x: 10,
-          y: 0
-        }
       ]
     }
 
@@ -69,10 +65,6 @@ describe( "CalcPointInPolygon", () => {
           x: 0,
           y: -10
         },
-        {
-          x: 10,
-          y: 0
-        }
       ]
     }
 

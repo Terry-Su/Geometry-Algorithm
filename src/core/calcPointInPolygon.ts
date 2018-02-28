@@ -35,7 +35,6 @@ export function isRight( L0: Point2D, L1: Point2D, P: Point2D ) {
   return area < 0
 }
 
-
 /**
  * Check if point P is inside of polygon with winding number algorithm
  * Algorithm: http://geomalgorithms.com/a03-_inclusion.html
@@ -51,7 +50,12 @@ export function pointInPolygonWindingNumber(
    */
   let wn = 0
 
-  const points: Point2D[] = polygonVertices
+  let points: Point2D[] = polygonVertices.slice()
+
+  if ( polygonVertices.length > 0 ) {
+    const first: Point2D = polygonVertices[ 0 ]
+    points.push( first )
+  }
 
   for ( let i: number = 0; i < points.length - 1; i++ ) {
     const V0: Point2D = points[ i ]
@@ -95,8 +99,13 @@ export function pointInPolygonCrossingNumber(
    * Crossing number
    */
   let cn = 0
+  
+  let points: Point2D[] = polygonVertices.slice()
 
-  const points: Point2D[] = polygonVertices
+  if ( polygonVertices.length > 0 ) {
+    const first: Point2D = polygonVertices[ 0 ]
+    points.push( first )
+  }
 
   for ( let i: number = 0; i < points.length - 1; i++ ) {
     const V0: Point2D = points[ i ]
@@ -109,10 +118,7 @@ export function pointInPolygonCrossingNumber(
     /**
      * Upward or downward
      */
-    if (
-      ( y0 <= yp && y1 > yp ) ||
-      ( y0 > yp && y1 <= yp )
-    ) {
+    if ( ( y0 <= yp && y1 > yp ) || ( y0 > yp && y1 <= yp ) ) {
       const interset: Point2D = getIntersectedPoint( x0, y0, x1, y1, yp )
       if ( interset.x > xp ) {
         cn = cn + 1
@@ -126,7 +132,13 @@ export function pointInPolygonCrossingNumber(
 
   return res
 
-  function getIntersectedPoint( x0: number, y0: number, x1: number, y1: number, yp: number ): Point2D {
+  function getIntersectedPoint(
+    x0: number,
+    y0: number,
+    x1: number,
+    y1: number,
+    yp: number
+  ): Point2D {
     /**
      * The slope of line
      */
@@ -139,7 +151,7 @@ export function pointInPolygonCrossingNumber(
       x: ( yp - b ) / vt,
       y: yp
     }
-    return res 
+    return res
   }
 
   function isEven( n: number ): boolean {

@@ -4,6 +4,6 @@
 
 // import './calcVectorRadian/index.spec.ts'
 
-// import './calcPointInPolygon/index.spec.ts'
+import './calcPointInPolygon/index.spec.ts'
 
-import './calcPointScaled/index.spec.ts'
+// import './calcPointScaled/index.spec.ts'
