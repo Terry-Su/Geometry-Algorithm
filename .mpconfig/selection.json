@@ -4,7 +4,7 @@
       "Geometry Algorithms": {
         "Calculate Triangle Area": false,
         "Calculate Distance Point To Line": false,
-        "Calculate If Point Is In Polygon": true
+        "Calculate If Point Is In Polygon": false
       },
       "test": true
     }

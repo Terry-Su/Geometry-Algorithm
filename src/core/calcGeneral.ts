@@ -48,7 +48,10 @@ export function isPointOnSegment( P: Point2D, segment: Segment ) {
   return res
 }
 
-export function isPointOnPolygonPath( P: Point2D, polygonVertices: Point2D[] ): boolean {
+/**
+ * Whether point is on the edge of polygon path
+ */
+export function isPointOnPolygonPathEdge( P: Point2D, polygonVertices: Point2D[] ): boolean {
   const res: boolean = isPointOnAnyPolygonSegment( P, polygonVertices )
   return res
 }

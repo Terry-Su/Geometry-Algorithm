@@ -1,4 +1,4 @@
-import { isPointOnPolygonPath } from "../../../core/calcGeneral";
+import { isPointOnPolygonPathEdge } from "../../../core/calcGeneral";
 
 describe( "calcGeneral", () => {
   it( "IsPointOnPolygonPath", () => {
@@ -27,7 +27,7 @@ describe( "calcGeneral", () => {
 
     const { P, P0, P1, P2, P3 } = instance
 
-    const testRes: boolean = isPointOnPolygonPath( P, [ P0, P1, P2, P3 ] )
+    const testRes: boolean = isPointOnPolygonPathEdge( P, [ P0, P1, P2, P3 ] )
     expect( testRes ).toBe( true )
   } )
 })

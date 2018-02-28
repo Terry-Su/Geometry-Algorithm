@@ -3,7 +3,7 @@ const { srcToBuild } = require( "./paths" )
 
 function getNodeConfigGeometryAlgorithmPages( dirname ) {
   return {
-    useWebpack   : true,
+    enableWebpack   : true,
     webpackConfig: Object.assign(
       {
         entry  : WS.entryApp( dirname ),

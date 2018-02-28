@@ -1,6 +1,6 @@
 import { Point2D } from "../shared/interface/index"
 import { log } from "console"
-import { isPointOnPolygonPath } from "./calcGeneral"
+import { isPointOnPolygonPathEdge } from "./calcGeneral"
 
 /**
  * Get area to check if point P is at the left or left side of vector from L0 to L1
@@ -75,7 +75,7 @@ export function pointInPolygonWindingNumber(
     }
   }
 
-  const pointOnPolygonPath: boolean = isPointOnPolygonPath( P, points )
+  const pointOnPolygonPath: boolean = isPointOnPolygonPathEdge( P, points )
   const res: boolean = pointOnPolygonPath || wn !== 0
 
   return res
@@ -121,7 +121,7 @@ export function pointInPolygonCrossingNumber(
   }
 
   const isCnEven: boolean = isEven( cn )
-  const pointOnPolygonPath: boolean = isPointOnPolygonPath( P, points )
+  const pointOnPolygonPath: boolean = isPointOnPolygonPathEdge( P, points )
   const res: boolean = pointOnPolygonPath || isCnEven
 
   return res

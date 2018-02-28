@@ -4,7 +4,7 @@ const { srcToBuild } = require( "../shared/paths" )
 
 
 module.exports = {
-  useWebpack   : true,
+  enableWebpack   : true,
   webpackConfig: Object.assign(
     {
       entry  : {
