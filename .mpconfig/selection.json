@@ -4,9 +4,10 @@
       "Geometry Algorithms": {
         "Calculate Triangle Area": false,
         "Calculate Distance Point To Line": false,
-        "Calculate If Point Is In Polygon": false
+        "Calculate If Point Is In Polygon": false,
+        "Lines intersection": true
       },
-      "test": true
+      "test": false
     }
   }
 ]
